@@ -1,9 +1,9 @@
 <?php
-    $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+    $command = "Hello from PHP";
+    $address = "127.0.0.1";
+    $port = 5500;
 
-    $msg = "Ping !";
-    $len = strlen($msg);
-
-    socket_sendto($sock, $msg, $len, 0, '127.0.0.1', 5500);
-    socket_close($sock);
+    $socket_object = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+    socket_sendto($socket_object, $command, strlen($command), 0, $address, $port);
+    socket_close($socket_object);
 ?>
